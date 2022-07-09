@@ -8,18 +8,27 @@ window.onload = function() {
   let sustant = ["jogger", "racoon"];
   let extensions = ["com", "es", "net", "io", "us"];
 
-  document
-    .querySelector(".dominio")
-    .classList.add(GenerarDominios(pronoun, adj, sustant, extensions));
+  document.querySelector(".dominio").innerHTML = GenerarDominios(
+    pronoun,
+    adj,
+    sustant,
+    extensions
+  );
 };
 
 function GenerarDominios(pronoun, adj, sustant, extensions) {
-  let pronunciacion = pronoun[Math.floor(Math.random() * pronoun.length)];
-  let adjetivo = adj[Math.floor(Math.random() * adj.length)];
-  let sustantivo = sustant[Math.floor(Math.random() * sustant.length)];
-  let extension = extensions[Math.floor(Math.random() * extensions.length)];
-  let domin = pronunciacion + "" + adjetivo + "" + sustantivo + "." + extension;
+  let pronunciacion = Math.floor(Math.random() * pronoun.length);
+  let adjetivo = Math.floor(Math.random() * adj.length);
+  let sustantivo = Math.floor(Math.random() * sustant.length);
+  let extension = Math.floor(Math.random() * extensions.length);
+  let domin =
+    pronoun[pronunciacion] +
+    "" +
+    adj[adjetivo] +
+    "" +
+    sustant[sustantivo] +
+    "." +
+    extensions[extension];
 
-  //return domin[domin];
-  console.log(domin);
+  return domin;
 }
